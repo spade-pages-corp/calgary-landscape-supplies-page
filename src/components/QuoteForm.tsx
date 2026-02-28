@@ -42,11 +42,14 @@ const QuoteForm = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      await fetch("https://email.spadeservices.app/webhook/spade-pages/contact", {
+      const res = await fetch("https://email.spadeservices.app/webhook/spade-pages/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
       });
+      if (res.status !== 202) {
+        throw new Error("Unexpected response");
+      }
       toast.success("Quote request sent! We'll be in touch shortly.");
       setForm({
         siteId: "093d1c28-6eac-4e24-860b-78d7524cdbf1",
@@ -58,7 +61,7 @@ const QuoteForm = () => {
         description: "",
       });
     } catch {
-      toast.success("Quote request sent! We'll be in touch shortly.");
+      toast.error("Something went wrong. Please try again or contact us directly.");
     } finally {
       setLoading(false);
     }
