@@ -19,7 +19,7 @@ const Navbar = () => {
   const isBulkMaterials = location.pathname === "/bulk-materials";
   const phoneNumber = isBulkMaterials ? "5878971602" : "5878971602";
   const phoneDisplay = isBulkMaterials ? "(587) 897-1602" : "(587) 897-1602";
-
+  //
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-foreground/95 backdrop-blur-sm">
       <div className="container relative flex items-center py-3">
