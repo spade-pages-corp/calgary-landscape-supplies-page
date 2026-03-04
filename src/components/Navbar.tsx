@@ -11,16 +11,14 @@ const allNavLinks = [
   { href: "/bulk-materials", label: "Materials", flag: "showMaterialsPage" as const },
 ];
 
-const navLinks = allNavLinks.filter(
-  (link) => !link.flag || featureFlags[link.flag]
-);
+const navLinks = allNavLinks.filter((link) => !link.flag || featureFlags[link.flag]);
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
   const isBulkMaterials = location.pathname === "/bulk-materials";
-  const phoneNumber = isBulkMaterials ? "5878971602" : "4038185857";
-  const phoneDisplay = isBulkMaterials ? "(587) 897-1602" : "(403) 818-5857";
+  const phoneNumber = isBulkMaterials ? "5878971602" : "5878971602";
+  const phoneDisplay = isBulkMaterials ? "(587) 897-1602" : "(587) 897-1602";
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-foreground/95 backdrop-blur-sm">
