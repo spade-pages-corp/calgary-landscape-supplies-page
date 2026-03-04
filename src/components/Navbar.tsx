@@ -2,13 +2,18 @@ import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import logo from "@/assets/logo.png";
 import { Phone, Menu, X } from "lucide-react";
+import { featureFlags } from "@/config/featureFlags";
 
-const navLinks = [
+const allNavLinks = [
   { href: "/#services", label: "Services" },
   { href: "/#gallery", label: "Our Work" },
   { href: "/#quote", label: "Get a Quote" },
-  { href: "/bulk-materials", label: "Materials" },
+  { href: "/bulk-materials", label: "Materials", flag: "showMaterialsPage" as const },
 ];
+
+const navLinks = allNavLinks.filter(
+  (link) => !link.flag || featureFlags[link.flag]
+);
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);

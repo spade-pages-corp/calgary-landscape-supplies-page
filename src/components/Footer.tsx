@@ -1,6 +1,7 @@
 import logo from "@/assets/logo.png";
 import spadePowered from "@/assets/spade-powered.webp";
 import { MapPin, Phone, Mail, Instagram } from "lucide-react";
+import { featureFlags } from "@/config/featureFlags";
 
 const Footer = () => {
   return (
@@ -20,9 +21,11 @@ const Footer = () => {
               <a href="/#services" className="block hover:text-accent transition-colors">
                 Services
               </a>
-              <a href="/bulk-materials" className="block hover:text-accent transition-colors">
-                Bulk Materials
-              </a>
+              {featureFlags.showMaterialsPage && (
+                <a href="/bulk-materials" className="block hover:text-accent transition-colors">
+                  Bulk Materials
+                </a>
+              )}
               <a href="/#gallery" className="block hover:text-accent transition-colors">
                 Our Work
               </a>
