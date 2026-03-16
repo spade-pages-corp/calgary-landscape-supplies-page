@@ -13,13 +13,10 @@ interface ContactRequest {
 
 const serviceOptions = [
   "Landscaping",
-  "Cleaning",
-  "Snow Removal",
-  "Landscape",
   "Hardscape",
   "Excavation",
+  "Snow Removal",
   "Spring cleanups",
-  "Snow removal services",
   "Bulk landscape materials",
   "Other",
 ];
