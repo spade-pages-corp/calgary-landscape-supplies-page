@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import QuoteForm from "@/components/QuoteForm";
 import Footer from "@/components/Footer";
+import MaterialCalculatorDrawer from "@/components/MaterialCalculatorDrawer";
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 
@@ -112,7 +113,8 @@ const BulkMaterials = () => {
           </div>
         </section>
 
-        <QuoteForm showCalculatorTab />
+        <QuoteForm />
+        <MaterialCalculatorDrawer />
       </main>
       <Footer />
     </div>
