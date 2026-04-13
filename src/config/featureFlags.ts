@@ -1,3 +1,3 @@
 export const featureFlags = {
-  showMaterialsPage: false,
+  showMaterialsPage: true,
 };
