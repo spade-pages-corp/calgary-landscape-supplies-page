@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { toast } from "sonner";
+import MaterialCalculator from "@/components/MaterialCalculator";
 
 interface ContactRequest {
   siteId: string;
@@ -21,8 +22,13 @@ const serviceOptions = [
   "Other",
 ];
 
-const QuoteForm = () => {
+interface QuoteFormProps {
+  showCalculatorTab?: boolean;
+}
+
+const QuoteForm = ({ showCalculatorTab = false }: QuoteFormProps) => {
   const [loading, setLoading] = useState(false);
+  const [activeTab, setActiveTab] = useState<"quote" | "calculator">("quote");
   const [form, setForm] = useState<ContactRequest>({
     siteId: "093d1c28-6eac-4e24-860b-78d7524cdbf1",
     fullName: "",
@@ -67,6 +73,13 @@ const QuoteForm = () => {
   const inputClasses =
     "w-full px-4 py-3 rounded-md border border-border bg-card text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/40 transition-shadow font-body";
 
+  const tabClasses = (isActive: boolean) =>
+    `px-6 py-3 font-display text-sm uppercase tracking-wider transition-colors rounded-t-lg ${
+      isActive
+        ? "bg-card text-foreground border border-border border-b-card -mb-px"
+        : "text-muted-foreground hover:text-foreground"
+    }`;
+
   return (
     <section id="quote" className="py-24">
       <div className="container">
@@ -79,74 +92,101 @@ const QuoteForm = () => {
               Foothills.
             </p>
           </div>
-          <form
-            onSubmit={handleSubmit}
-            className="space-y-5 bg-card p-8 md:p-10 rounded-xl border border-border shadow-sm"
-          >
-            <div className="grid md:grid-cols-2 gap-5">
-              <input
-                required
-                type="text"
-                placeholder="Full Name *"
-                value={form.fullName}
-                onChange={(e) => update("fullName", e.target.value)}
-                className={inputClasses}
-              />
-              <input
-                required
-                type="email"
-                placeholder="Email Address *"
-                value={form.replyEmail}
-                onChange={(e) => update("replyEmail", e.target.value)}
-                className={inputClasses}
-              />
+
+          {/* Tabs */}
+          {showCalculatorTab && (
+            <div className="flex gap-1 mb-0">
+              <button onClick={() => setActiveTab("quote")} className={tabClasses(activeTab === "quote")}>
+                Get a Quote
+              </button>
+              <button onClick={() => setActiveTab("calculator")} className={tabClasses(activeTab === "calculator")}>
+                📐 Calculator
+              </button>
             </div>
-            <div className="grid md:grid-cols-2 gap-5">
-              <input
-                type="tel"
-                placeholder="Phone Number"
-                value={form.telephone}
-                onChange={(e) => update("telephone", e.target.value)}
-                className={inputClasses}
-              />
-              <input
-                type="text"
-                placeholder="Postal / Zip Code"
-                value={form.zipcode}
-                onChange={(e) => update("zipcode", e.target.value)}
-                className={inputClasses}
-              />
-            </div>
-            <select
-              required
-              value={form.serviceType}
-              onChange={(e) => update("serviceType", e.target.value)}
-              className={inputClasses}
+          )}
+
+          {/* Quote form */}
+          {activeTab === "quote" && (
+            <form
+              onSubmit={handleSubmit}
+              className="space-y-5 bg-card p-8 md:p-10 rounded-xl border border-border shadow-sm"
+              style={showCalculatorTab ? { borderTopLeftRadius: 0 } : undefined}
             >
-              <option value="" disabled>
-                Select a Service *
-              </option>
-              {serviceOptions.map((s) => (
-                <option key={s} value={s}>
-                  {s}
+              <div className="grid md:grid-cols-2 gap-5">
+                <input
+                  required
+                  type="text"
+                  placeholder="Full Name *"
+                  value={form.fullName}
+                  onChange={(e) => update("fullName", e.target.value)}
+                  className={inputClasses}
+                />
+                <input
+                  required
+                  type="email"
+                  placeholder="Email Address *"
+                  value={form.replyEmail}
+                  onChange={(e) => update("replyEmail", e.target.value)}
+                  className={inputClasses}
+                />
+              </div>
+              <div className="grid md:grid-cols-2 gap-5">
+                <input
+                  type="tel"
+                  placeholder="Phone Number"
+                  value={form.telephone}
+                  onChange={(e) => update("telephone", e.target.value)}
+                  className={inputClasses}
+                />
+                <input
+                  type="text"
+                  placeholder="Postal / Zip Code"
+                  value={form.zipcode}
+                  onChange={(e) => update("zipcode", e.target.value)}
+                  className={inputClasses}
+                />
+              </div>
+              <select
+                required
+                value={form.serviceType}
+                onChange={(e) => update("serviceType", e.target.value)}
+                className={inputClasses}
+              >
+                <option value="" disabled>
+                  Select a Service *
                 </option>
-              ))}
-            </select>
-            <textarea
-              rows={4}
-              placeholder="Tell us about your project..."
-              value={form.description}
-              onChange={(e) => update("description", e.target.value)}
-              className={inputClasses + " resize-none"}
-            />
-            <button
-              type="submit"
-              disabled={loading}
-              className="w-full bg-primary text-primary-foreground py-4 rounded-md font-display text-sm uppercase tracking-wider hover:opacity-90 transition-opacity disabled:opacity-50"
+                {serviceOptions.map((s) => (
+                  <option key={s} value={s}>
+                    {s}
+                  </option>
+                ))}
+              </select>
+              <textarea
+                rows={4}
+                placeholder="Tell us about your project..."
+                value={form.description}
+                onChange={(e) => update("description", e.target.value)}
+                className={inputClasses + " resize-none"}
+              />
+              <button
+                type="submit"
+                disabled={loading}
+                className="w-full bg-primary text-primary-foreground py-4 rounded-md font-display text-sm uppercase tracking-wider hover:opacity-90 transition-opacity disabled:opacity-50"
+              >
+                {loading ? "Sending..." : "Submit Quote Request"}
+              </button>
+            </form>
+          )}
+
+          {/* Calculator tab */}
+          {activeTab === "calculator" && showCalculatorTab && (
+            <div
+              className="bg-card p-8 md:p-10 rounded-xl border border-border shadow-sm"
+              style={{ borderTopLeftRadius: 0 }}
             >
-              {loading ? "Sending..." : "Submit Quote Request"}
-            </button>
-          </form>
+              <MaterialCalculator inline />
+            </div>
+          )}
         </div>
       </div>
     </section>
