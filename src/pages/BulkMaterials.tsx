@@ -112,8 +112,7 @@ const BulkMaterials = () => {
           </div>
         </section>
 
-        <MaterialCalculator />
-        <QuoteForm />
+        <QuoteForm showCalculatorTab />
       </main>
       <Footer />
     </div>
