@@ -62,6 +62,12 @@ export const materials: Material[] = [
   { name: "40mm Rainbow Rock", price: "$235", unit: "per yard", description: "Large rainbow-hued stones perfect for garden beds, water features, and accents.", image: rainbowRock40Img },
   { name: "4–8 Inch River Rock", price: "$200", unit: "per yard", description: "Large natural river rock for shorelines, retaining features, and bold landscape design.", image: riverRockImg },
   { name: "10mm Limestone", price: "$125", unit: "per yard", description: "Crushed limestone aggregate for base layers, pathways, and compacted surfaces.", image: limestoneImg },
+  { name: "20mm Limestone", price: "$135", unit: "per yard", description: "Mid-size crushed limestone for drainage, driveways, and landscaping base.", image: limestone20Img },
+  { name: "40mm Limestone", price: "$135", unit: "per yard", description: "Large crushed limestone for heavy-duty base layers and structural fill.", image: limestone40Img },
+  { name: "3mm Sand", price: "$65", unit: "per yard", description: "Fine sand for levelling, paving stone bedding, and sandbox fill.", image: sand3Img },
+  { name: "5mm Sand", price: "$70", unit: "per yard", description: "Coarse utility sand for concrete mixing, backfill, and pipe bedding.", image: sand5Img },
+  { name: "Recycled Asphalt", price: "$60", unit: "per yard", description: "Eco-friendly recycled asphalt for driveways, paths, and temporary surfaces.", image: recycledAsphaltImg },
+  { name: "Recycled Concrete", price: "$60", unit: "per yard", description: "Crushed recycled concrete for affordable base, fill, and drainage projects.", image: recycledConcreteImg },
 ];
 
 const ITEMS_PER_PAGE = 9;
