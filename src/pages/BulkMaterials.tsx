@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import QuoteForm from "@/components/QuoteForm";
 import Footer from "@/components/Footer";
@@ -89,6 +90,15 @@ const BulkMaterials = () => {
 
   return (
     <div className="min-h-screen">
+      <Helmet>
+        <title>Bulk Landscape Materials | Soil, Mulch, Rock & Gravel Delivery Calgary</title>
+        <meta name="description" content="Order bulk landscape materials for delivery in Calgary, Okotoks & the Foothills. Soil, mulch, gravel, rundle rock, limestone, sand & more. Prices from $0.55/sqft. Call for delivery quote." />
+        <link rel="canonical" href="https://calgarylandscapesupplies.ca/bulk-materials" />
+        <meta property="og:title" content="Bulk Landscape Materials | Calgary Landscape Supplies" />
+        <meta property="og:description" content="Premium aggregates, soils, mulches & rock delivered throughout Calgary, Okotoks & the Foothills. 26+ products available by the yard." />
+        <meta property="og:url" content="https://calgarylandscapesupplies.ca/bulk-materials" />
+        <meta property="og:type" content="website" />
+      </Helmet>
       <Navbar />
       <main>
         {/* Hero Banner */}
