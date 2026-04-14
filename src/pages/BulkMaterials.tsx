@@ -42,30 +42,40 @@ export interface Material {
 }
 
 export const materials: Material[] = [
+  // Sod & Soils
   { name: "Sod", price: "$0.55", unit: "per sq ft", description: "Fresh-cut Kentucky Bluegrass sod for instant, lush lawns.", image: sodImg },
   { name: "Soil", price: "$15", unit: "per yard", description: "High-quality screened topsoil for gardens, lawns, and raised beds.", image: soilImg },
   { name: "70/30 Mix", price: "$40", unit: "per yard", description: "Premium 70% topsoil / 30% compost blend — ideal for new lawns and garden beds.", image: mix7030Img },
   { name: "Clay", price: "$30", unit: "per yard", description: "Natural clay fill for grading, backfill, and base preparation.", image: clayImg },
+  // Sand
+  { name: "3mm Sand", price: "$65", unit: "per yard", description: "Fine sand for levelling, paving stone bedding, and sandbox fill.", image: sand3Img },
+  { name: "5mm Sand", price: "$70", unit: "per yard", description: "Coarse utility sand for concrete mixing, backfill, and pipe bedding.", image: sand5Img },
+  // Mulch
   { name: "Cedar Mulch", price: "$60", unit: "per yard", description: "Aromatic cedar mulch that naturally repels insects and retains moisture.", image: cedarMulchImg },
   { name: "Black Mulch", price: "$60", unit: "per yard", description: "Premium dyed black mulch for a clean, polished look in flower beds and borders.", image: blackMulchImg },
   { name: "Bark Mulch", price: "$60", unit: "per yard", description: "Natural bark mulch for garden beds. Retains moisture and suppresses weeds.", image: barkMulchImg },
+  // Gravel & Drain Rock
   { name: "20mm Road Gravel", price: "$60", unit: "per yard", description: "Versatile crushed gravel for driveways, parking areas, and base layers.", image: roadGravelImg },
   { name: "40mm Drain Rock", price: "$65", unit: "per yard", description: "Smooth, rounded drain rock for drainage systems, dry wells, and French drains.", image: drainRockImg },
-  { name: "10mm Rundle Rock", price: "$118", unit: "per yard", description: "Local Alberta limestone — a classic choice for rock gardens and retaining features.", image: randleRockImg },
-  { name: "25mm Rundle Rock", price: "$190", unit: "per yard", description: "Mid-size Alberta Rundle stone for pathways, borders, and decorative ground cover.", image: rundleRock25Img },
-  { name: "40mm Rundle Rock", price: "$225", unit: "per yard", description: "Large Rundle rock ideal for retaining walls, water features, and bold landscaping accents.", image: rundleRock40Img },
-  { name: "Crystal White Rock", price: "$450", unit: "per yard", description: "Brilliant white decorative stone for elegant gardens, planters, and accent areas.", image: crystalWhiteImg },
-  { name: "10mm Washed Rock (Pea Gravel)", price: "$100", unit: "per yard", description: "Smooth, rounded pea gravel for pathways, playgrounds, and drainage layers.", image: peaGravelImg },
-  { name: "20mm Washed Rock", price: "$100", unit: "per yard", description: "Versatile washed rock for landscaping, drainage, and decorative ground cover.", image: washedRock20Img },
-  { name: "40mm Washed Rock", price: "$100", unit: "per yard", description: "Large smooth river stone for dry creek beds, borders, and landscape features.", image: washedRock40Img },
-  { name: "20mm Rainbow Rock", price: "$275", unit: "per yard", description: "Colorful multi-toned river rock that adds natural beauty to any landscape.", image: rainbowRock20Img },
-  { name: "40mm Rainbow Rock", price: "$235", unit: "per yard", description: "Large rainbow-hued stones perfect for garden beds, water features, and accents.", image: rainbowRock40Img },
-  { name: "4–8 Inch River Rock", price: "$200", unit: "per yard", description: "Large natural river rock for shorelines, retaining features, and bold landscape design.", image: riverRockImg },
+  // Limestone
   { name: "10mm Limestone", price: "$125", unit: "per yard", description: "Crushed limestone aggregate for base layers, pathways, and compacted surfaces.", image: limestoneImg },
   { name: "20mm Limestone", price: "$135", unit: "per yard", description: "Mid-size crushed limestone for drainage, driveways, and landscaping base.", image: limestone20Img },
   { name: "40mm Limestone", price: "$135", unit: "per yard", description: "Large crushed limestone for heavy-duty base layers and structural fill.", image: limestone40Img },
-  { name: "3mm Sand", price: "$65", unit: "per yard", description: "Fine sand for levelling, paving stone bedding, and sandbox fill.", image: sand3Img },
-  { name: "5mm Sand", price: "$70", unit: "per yard", description: "Coarse utility sand for concrete mixing, backfill, and pipe bedding.", image: sand5Img },
+  // Rundle Rock
+  { name: "10mm Rundle Rock", price: "$118", unit: "per yard", description: "Local Alberta limestone — a classic choice for rock gardens and retaining features.", image: randleRockImg },
+  { name: "25mm Rundle Rock", price: "$190", unit: "per yard", description: "Mid-size Alberta Rundle stone for pathways, borders, and decorative ground cover.", image: rundleRock25Img },
+  { name: "40mm Rundle Rock", price: "$225", unit: "per yard", description: "Large Rundle rock ideal for retaining walls, water features, and bold landscaping accents.", image: rundleRock40Img },
+  // Washed Rock
+  { name: "10mm Washed Rock (Pea Gravel)", price: "$100", unit: "per yard", description: "Smooth, rounded pea gravel for pathways, playgrounds, and drainage layers.", image: peaGravelImg },
+  { name: "20mm Washed Rock", price: "$100", unit: "per yard", description: "Versatile washed rock for landscaping, drainage, and decorative ground cover.", image: washedRock20Img },
+  { name: "40mm Washed Rock", price: "$100", unit: "per yard", description: "Large smooth river stone for dry creek beds, borders, and landscape features.", image: washedRock40Img },
+  // Rainbow Rock
+  { name: "20mm Rainbow Rock", price: "$275", unit: "per yard", description: "Colorful multi-toned river rock that adds natural beauty to any landscape.", image: rainbowRock20Img },
+  { name: "40mm Rainbow Rock", price: "$235", unit: "per yard", description: "Large rainbow-hued stones perfect for garden beds, water features, and accents.", image: rainbowRock40Img },
+  // Specialty Rock
+  { name: "Crystal White Rock", price: "$450", unit: "per yard", description: "Brilliant white decorative stone for elegant gardens, planters, and accent areas.", image: crystalWhiteImg },
+  { name: "4–8 Inch River Rock", price: "$200", unit: "per yard", description: "Large natural river rock for shorelines, retaining features, and bold landscape design.", image: riverRockImg },
+  // Recycled
   { name: "Recycled Asphalt", price: "$60", unit: "per yard", description: "Eco-friendly recycled asphalt for driveways, paths, and temporary surfaces.", image: recycledAsphaltImg },
   { name: "Recycled Concrete", price: "$60", unit: "per yard", description: "Crushed recycled concrete for affordable base, fill, and drainage projects.", image: recycledConcreteImg },
 ];
