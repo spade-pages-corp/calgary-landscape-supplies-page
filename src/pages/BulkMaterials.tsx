@@ -1,26 +1,50 @@
+import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import QuoteForm from "@/components/QuoteForm";
 import Footer from "@/components/Footer";
 import MaterialCalculatorDrawer from "@/components/MaterialCalculatorDrawer";
 import { Link } from "react-router-dom";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ChevronLeft, ChevronRight } from "lucide-react";
 
-const materials = [
-  { name: "River Rock", size: '1"–3"', unit: "per yard", description: "Smooth, rounded stones ideal for dry creek beds, borders, and decorative ground cover." },
-  { name: "Pea Gravel", size: '¼"–½"', unit: "per yard", description: "Small, smooth stones perfect for pathways, patios, and drainage solutions." },
-  { name: "Crushed Granite", size: '¾" minus', unit: "per yard", description: "Angular stone that compacts well — great for driveways, paths, and base layers." },
-  { name: "Decorative Bark Mulch", size: "Medium", unit: "per yard", description: "Natural bark mulch for garden beds. Retains moisture and suppresses weeds." },
-  { name: "Black Diamond Mulch", size: "Fine–Medium", unit: "per yard", description: "Premium dyed black mulch for a clean, polished look in flower beds and borders." },
-  { name: "Topsoil", size: "Screened", unit: "per yard", description: "High-quality screened topsoil for gardens, lawns, and raised beds." },
-  { name: "Compost Mix", size: "Fine", unit: "per yard", description: "Nutrient-rich organic compost blend to enrich soil and promote healthy growth." },
-  { name: "Rundle Rock", size: '2"–6"', unit: "per yard", description: "Local Alberta limestone — a classic choice for rock gardens and retaining features." },
-  { name: "Rainbow Rock", size: '1"–4"', unit: "per yard", description: "Multi-coloured natural stone that adds visual interest to any landscape." },
-  { name: "Limestone Screenings", size: '¼" minus', unit: "per yard", description: "Fine crushed limestone for levelling, paver base, and filling joints." },
-  { name: "Sand (Concrete)", size: "Fine", unit: "per yard", description: "Washed concrete sand for mixing, levelling, and construction projects." },
-  { name: "Road Crush", size: '¾" minus', unit: "per yard", description: "Recycled crushed aggregate — an economical option for driveways and parking areas." },
+import sodImg from "@/assets/materials/sod.webp";
+import soilImg from "@/assets/materials/soil.webp";
+import mix7030Img from "@/assets/materials/70_30-mix.webp";
+import clayImg from "@/assets/materials/clay.webp";
+import cedarMulchImg from "@/assets/materials/cedar-mulch.webp";
+import blackMulchImg from "@/assets/materials/black-mulch.webp";
+import barkMulchImg from "@/assets/materials/bark-mulch.webp";
+import roadGravelImg from "@/assets/materials/20mm-road-gravel.webp";
+import drainRockImg from "@/assets/materials/40mm-drain-rock.webp";
+import randleRockImg from "@/assets/materials/10mm-randle-rock.webp";
+
+export interface Material {
+  name: string;
+  price: string;
+  unit: string;
+  description: string;
+  image: string;
+}
+
+export const materials: Material[] = [
+  { name: "Sod", price: "$0.55", unit: "per sq ft", description: "Fresh-cut Kentucky Bluegrass sod for instant, lush lawns.", image: sodImg },
+  { name: "Soil", price: "$15", unit: "per yard", description: "High-quality screened topsoil for gardens, lawns, and raised beds.", image: soilImg },
+  { name: "70/30 Mix", price: "$40", unit: "per yard", description: "Premium 70% topsoil / 30% compost blend — ideal for new lawns and garden beds.", image: mix7030Img },
+  { name: "Clay", price: "$30", unit: "per yard", description: "Natural clay fill for grading, backfill, and base preparation.", image: clayImg },
+  { name: "Cedar Mulch", price: "$60", unit: "per yard", description: "Aromatic cedar mulch that naturally repels insects and retains moisture.", image: cedarMulchImg },
+  { name: "Black Mulch", price: "$60", unit: "per yard", description: "Premium dyed black mulch for a clean, polished look in flower beds and borders.", image: blackMulchImg },
+  { name: "Bark Mulch", price: "$60", unit: "per yard", description: "Natural bark mulch for garden beds. Retains moisture and suppresses weeds.", image: barkMulchImg },
+  { name: "20mm Road Gravel", price: "$60", unit: "per yard", description: "Versatile crushed gravel for driveways, parking areas, and base layers.", image: roadGravelImg },
+  { name: "40mm Drain Rock", price: "$65", unit: "per yard", description: "Smooth, rounded drain rock for drainage systems, dry wells, and French drains.", image: drainRockImg },
+  { name: "10mm Rundle Rock", price: "$118", unit: "per yard", description: "Local Alberta limestone — a classic choice for rock gardens and retaining features.", image: randleRockImg },
 ];
 
+const ITEMS_PER_PAGE = 9;
+
 const BulkMaterials = () => {
+  const [page, setPage] = useState(1);
+  const totalPages = Math.ceil(materials.length / ITEMS_PER_PAGE);
+  const paged = materials.slice((page - 1) * ITEMS_PER_PAGE, page * ITEMS_PER_PAGE);
+
   return (
     <div className="min-h-screen">
       <Navbar />
@@ -51,65 +75,77 @@ const BulkMaterials = () => {
         <section className="py-20">
           <div className="container">
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {materials.map((m) => (
+              {paged.map((m) => (
                 <div
                   key={m.name}
                   className="group bg-card border border-border rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow"
                 >
-                  {/* Placeholder image area */}
                   <div className="aspect-[4/3] bg-muted relative overflow-hidden">
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="text-center">
-                        <div className="w-16 h-16 mx-auto mb-2 rounded-full bg-primary/10 flex items-center justify-center">
-                          <svg
-                            className="w-8 h-8 text-primary/40"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                            strokeWidth={1.5}
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0 0 22.5 18.75V5.25A2.25 2.25 0 0 0 20.25 3H3.75A2.25 2.25 0 0 0 1.5 5.25v13.5A2.25 2.25 0 0 0 3.75 21Z"
-                            />
-                          </svg>
-                        </div>
-                        <span className="text-xs text-muted-foreground">Photo coming soon</span>
-                      </div>
-                    </div>
-                    {/* Subtle gradient overlay at bottom */}
-                    <div className="absolute bottom-0 inset-x-0 h-12 bg-gradient-to-t from-card/60 to-transparent" />
+                    <img
+                      src={m.image}
+                      alt={m.name}
+                      className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                    />
+                    <div className="absolute bottom-0 inset-x-0 h-16 bg-gradient-to-t from-card/80 to-transparent" />
                   </div>
 
-                  {/* Content */}
                   <div className="p-5">
                     <div className="flex items-start justify-between gap-3 mb-2">
                       <h3 className="font-display text-lg font-semibold text-foreground">
                         {m.name}
                       </h3>
-                      <span className="shrink-0 text-xs font-display uppercase tracking-wider bg-secondary text-secondary-foreground px-2.5 py-1 rounded-md">
-                        {m.size}
+                      <span className="shrink-0 text-sm font-display font-bold text-accent">
+                        {m.price}
+                        <span className="text-xs font-normal text-muted-foreground ml-1">{m.unit}</span>
                       </span>
                     </div>
                     <p className="text-muted-foreground text-sm leading-relaxed mb-3">
                       {m.description}
                     </p>
-                    <div className="flex items-center justify-between">
-                      <span className="text-xs text-muted-foreground font-display uppercase tracking-wider">
-                        Sold {m.unit}
-                      </span>
-                      <a
-                        href="#quote"
-                        className="text-sm font-display uppercase tracking-wider text-accent hover:text-accent/80 transition-colors"
-                      >
-                        Get Quote →
-                      </a>
-                    </div>
+                    <a
+                      href="#quote"
+                      className="text-sm font-display uppercase tracking-wider text-accent hover:text-accent/80 transition-colors"
+                    >
+                      Get Quote →
+                    </a>
                   </div>
                 </div>
               ))}
             </div>
+
+            {/* Pagination */}
+            {totalPages > 1 && (
+              <div className="flex items-center justify-center gap-2 mt-12">
+                <button
+                  onClick={() => setPage((p) => Math.max(1, p - 1))}
+                  disabled={page === 1}
+                  className="inline-flex items-center gap-1 px-4 py-2 rounded-md font-display text-sm uppercase tracking-wider transition-colors disabled:opacity-30 disabled:cursor-not-allowed bg-muted text-muted-foreground hover:text-foreground"
+                >
+                  <ChevronLeft className="h-4 w-4" /> Prev
+                </button>
+                {Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => (
+                  <button
+                    key={p}
+                    onClick={() => setPage(p)}
+                    className={`w-10 h-10 rounded-md font-display text-sm transition-colors ${
+                      p === page
+                        ? "bg-accent text-accent-foreground"
+                        : "bg-muted text-muted-foreground hover:text-foreground"
+                    }`}
+                  >
+                    {p}
+                  </button>
+                ))}
+                <button
+                  onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
+                  disabled={page === totalPages}
+                  className="inline-flex items-center gap-1 px-4 py-2 rounded-md font-display text-sm uppercase tracking-wider transition-colors disabled:opacity-30 disabled:cursor-not-allowed bg-muted text-muted-foreground hover:text-foreground"
+                >
+                  Next <ChevronRight className="h-4 w-4" />
+                </button>
+              </div>
+            )}
           </div>
         </section>
 
