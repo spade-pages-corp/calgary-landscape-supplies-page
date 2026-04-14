@@ -26,6 +26,12 @@ import rainbowRock20Img from "@/assets/materials/20mm-rainbow-rock.webp";
 import rainbowRock40Img from "@/assets/materials/40mm-rainbow-rock.webp";
 import riverRockImg from "@/assets/materials/4-8-inch-river-rock.webp";
 import limestoneImg from "@/assets/materials/10mm-limestone.webp";
+import limestone20Img from "@/assets/materials/20mm-limestone.webp";
+import limestone40Img from "@/assets/materials/40mm-limestone.webp";
+import sand3Img from "@/assets/materials/3mm-sand.webp";
+import sand5Img from "@/assets/materials/5mm-sand.webp";
+import recycledAsphaltImg from "@/assets/materials/recycled-asphalt.webp";
+import recycledConcreteImg from "@/assets/materials/recycled-concrete.webp";
 
 export interface Material {
   name: string;
