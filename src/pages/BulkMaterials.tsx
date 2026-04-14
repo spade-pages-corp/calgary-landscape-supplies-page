@@ -16,6 +16,16 @@ import barkMulchImg from "@/assets/materials/bark-mulch.webp";
 import roadGravelImg from "@/assets/materials/20mm-road-gravel.webp";
 import drainRockImg from "@/assets/materials/40mm-drain-rock.webp";
 import randleRockImg from "@/assets/materials/10mm-randle-rock.webp";
+import rundleRock25Img from "@/assets/materials/25mm-rundle-rock.webp";
+import rundleRock40Img from "@/assets/materials/40mm-rundle-rock.webp";
+import crystalWhiteImg from "@/assets/materials/crystal-white-rock.webp";
+import peaGravelImg from "@/assets/materials/10mm-washed-rock-pea-gravel.webp";
+import washedRock20Img from "@/assets/materials/20mm-washed-rock.webp";
+import washedRock40Img from "@/assets/materials/40mm-washed-rock.jpg";
+import rainbowRock20Img from "@/assets/materials/20mm-rainbow-rock.webp";
+import rainbowRock40Img from "@/assets/materials/40mm-rainbow-rock.webp";
+import riverRockImg from "@/assets/materials/4-8-inch-river-rock.webp";
+import limestoneImg from "@/assets/materials/10mm-limestone.webp";
 
 export interface Material {
   name: string;
