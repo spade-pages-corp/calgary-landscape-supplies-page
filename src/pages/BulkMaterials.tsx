@@ -110,6 +110,16 @@ const BulkMaterials = () => {
             <p className="text-primary-foreground/70 text-lg max-w-2xl">
               Premium aggregates, soils, and mulches available by the yard. Delivery throughout Calgary, Okotoks &amp; the Foothills.
             </p>
+            <div className="flex flex-wrap gap-4 mt-6">
+              <div className="inline-flex items-center gap-2 bg-primary-foreground/10 border border-primary-foreground/20 rounded-lg px-4 py-2.5">
+                <span className="text-accent font-display text-sm uppercase tracking-wider">Delivery Only</span>
+                <span className="text-primary-foreground/60 text-sm">— No pickups available</span>
+              </div>
+              <div className="inline-flex items-center gap-2 bg-primary-foreground/10 border border-primary-foreground/20 rounded-lg px-4 py-2.5">
+                <span className="text-accent font-display text-sm uppercase tracking-wider">Delivery Fee</span>
+                <span className="text-primary-foreground/60 text-sm">— Quoted upon contact</span>
+              </div>
+            </div>
           </div>
         </section>
 
