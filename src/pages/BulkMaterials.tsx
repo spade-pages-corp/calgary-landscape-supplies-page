@@ -208,6 +208,17 @@ const BulkMaterials = () => {
                 </button>
               </div>
             )}
+
+            {/* CTA to open calculator */}
+            <div className="flex justify-center mt-12">
+              <button
+                onClick={() => document.querySelector<HTMLButtonElement>('.fixed.bottom-6.right-6')?.click()}
+                className="inline-flex items-center gap-3 bg-accent text-accent-foreground px-8 py-4 rounded-xl font-display text-base uppercase tracking-wider hover:opacity-90 transition-all shadow-md hover:shadow-lg"
+              >
+                <Calculator className="h-5 w-5" />
+                Enter Your Dimensions — Estimate Materials Needed
+              </button>
+            </div>
           </div>
         </section>
 
