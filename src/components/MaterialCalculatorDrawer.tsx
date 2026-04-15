@@ -31,7 +31,7 @@ const MaterialCalculatorDrawer = () => {
       {/* Floating button */}
       <button
         onClick={() => setOpen(true)}
-        className="fixed bottom-6 right-6 z-40 flex items-center gap-2 bg-accent text-accent-foreground pl-5 pr-6 py-3.5 rounded-full shadow-xl hover:shadow-2xl hover:scale-105 transition-all font-display text-sm uppercase tracking-wider sm:animate-pulse hover:animate-none ring-2 ring-accent/30 ring-offset-2 ring-offset-background"
+        className="fixed bottom-6 right-6 z-40 flex items-center gap-2 bg-accent text-accent-foreground pl-5 pr-6 py-3.5 rounded-full shadow-xl hover:shadow-2xl hover:scale-105 transition-all font-display text-sm uppercase tracking-wider ring-2 ring-accent/30 ring-offset-2 ring-offset-background"
       >
         <Calculator className="h-5 w-5" />
         <span>Calculator</span>
