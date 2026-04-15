@@ -5,7 +5,7 @@ import QuoteForm from "@/components/QuoteForm";
 import Footer from "@/components/Footer";
 import MaterialCalculatorDrawer from "@/components/MaterialCalculatorDrawer";
 import { Link } from "react-router-dom";
-import { ArrowLeft, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowLeft, Calculator, ChevronLeft, ChevronRight } from "lucide-react";
 
 import sodImg from "@/assets/materials/sod.webp";
 import soilImg from "@/assets/materials/soil.webp";
