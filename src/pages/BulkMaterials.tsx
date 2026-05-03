@@ -26,6 +26,7 @@ import washedRock40Img from "@/assets/materials/40mm-washed-rock.jpg";
 import rainbowRock20Img from "@/assets/materials/20mm-rainbow-rock.webp";
 import rainbowRock40Img from "@/assets/materials/40mm-rainbow-rock.webp";
 import riverRockImg from "@/assets/materials/4-8-inch-river-rock.webp";
+import cobblestone3Img from "@/assets/materials/3-inch-rounded-cobblestone.webp";
 import limestoneImg from "@/assets/materials/10mm-limestone.webp";
 import limestone20Img from "@/assets/materials/20mm-limestone.webp";
 import limestone40Img from "@/assets/materials/40mm-limestone.webp";
@@ -212,6 +213,13 @@ export const materials: Material[] = [
     unit: "per yard",
     description: "Brilliant white decorative stone for elegant gardens, planters, and accent areas.",
     image: crystalWhiteImg,
+  },
+  {
+    name: "3 Inch Rounded Cobblestone",
+    price: "$180",
+    unit: "per yard",
+    description: "Smooth, rounded cobblestone for decorative ground cover, borders, and natural landscape accents.",
+    image: cobblestone3Img,
   },
   {
     name: "4–8 Inch River Rock",
