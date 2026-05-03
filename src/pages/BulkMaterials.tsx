@@ -256,16 +256,10 @@ const BulkMaterials = () => {
     <div className="min-h-screen">
       <Helmet>
         <title>Bulk Landscape Materials | Soil, Mulch, Rock & Gravel Delivery Calgary</title>
-        <meta
-          name="description"
-          content="Order bulk landscape materials for delivery in Calgary, Okotoks & the Foothills. Soil, mulch, gravel, rundle rock, limestone, sand & more. Prices from $0.55/sqft. Call for delivery quote."
-        />
+        <meta name="description" content="Order bulk landscape materials for delivery in Calgary, Okotoks & the Foothills. Soil, mulch, gravel, rundle rock, limestone, sand & more. Prices from $0.55/sqft. Call for delivery quote." />
         <link rel="canonical" href="https://calgarylandscapesupplies.ca/bulk-materials" />
         <meta property="og:title" content="Bulk Landscape Materials | Calgary Landscape Supplies" />
-        <meta
-          property="og:description"
-          content="Premium aggregates, soils, mulches & rock delivered throughout Calgary, Okotoks & the Foothills. 26+ products available by the yard."
-        />
+        <meta property="og:description" content="Premium aggregates, soils, mulches & rock delivered throughout Calgary, Okotoks & the Foothills. 26+ products available by the yard." />
         <meta property="og:url" content="https://calgarylandscapesupplies.ca/bulk-materials" />
         <meta property="og:type" content="website" />
       </Helmet>
@@ -377,7 +371,7 @@ const BulkMaterials = () => {
             {/* CTA to open calculator */}
             <div className="flex justify-center mt-12">
               <button
-                onClick={() => document.querySelector<HTMLButtonElement>(".fixed.bottom-6.right-6")?.click()}
+                onClick={() => document.querySelector<HTMLButtonElement>('.fixed.bottom-6.right-6')?.click()}
                 className="inline-flex items-center gap-3 bg-accent text-accent-foreground px-8 py-4 rounded-xl font-display text-base uppercase tracking-wider hover:opacity-90 transition-all shadow-md hover:shadow-lg"
               >
                 <Calculator className="h-5 w-5" />
