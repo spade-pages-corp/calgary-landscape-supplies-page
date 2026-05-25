@@ -47,7 +47,7 @@ export const materials: Material[] = [
   // Sod & Soils
   {
     name: "Sod",
-    price: "$0.55",
+    price: "$1.99",
     unit: "per sq ft",
     description: "Fresh-cut Kentucky Bluegrass sod for instant, lush lawns.",
     image: sodImg,
