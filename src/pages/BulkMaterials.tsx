@@ -47,7 +47,7 @@ export const materials: Material[] = [
   // Sod & Soils
   {
     name: "Sod",
-    price: "$0.55",
+    price: "$0.60",
     unit: "per sq ft",
     description: "Fresh-cut Kentucky Bluegrass sod for instant, lush lawns.",
     image: sodImg,
@@ -256,7 +256,7 @@ const BulkMaterials = () => {
     <div className="min-h-screen">
       <Helmet>
         <title>Bulk Landscape Materials | Soil, Mulch, Rock & Gravel Delivery Calgary</title>
-        <meta name="description" content="Order bulk landscape materials for delivery in Calgary, Okotoks & the Foothills. Soil, mulch, gravel, rundle rock, limestone, sand & more. Prices from $0.55/sqft. Call for delivery quote." />
+        <meta name="description" content="Order bulk landscape materials for delivery in Calgary, Okotoks & the Foothills. Soil, mulch, gravel, rundle rock, limestone, sand & more. Prices from $0.60/sqft. Call for delivery quote." />
         <link rel="canonical" href="https://calgarylandscapesupplies.ca/bulk-materials" />
         <meta property="og:title" content="Bulk Landscape Materials | Calgary Landscape Supplies" />
         <meta property="og:description" content="Premium aggregates, soils, mulches & rock delivered throughout Calgary, Okotoks & the Foothills. 26+ products available by the yard." />
