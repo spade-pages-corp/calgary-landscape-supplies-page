@@ -9,6 +9,9 @@ import sodLawnHouse from "@/assets/gallery/sod-lawn-house.webp";
 import sodRockWall from "@/assets/gallery/sod-rock-wall.webp";
 import sodDriveway from "@/assets/gallery/sod-driveway.webp";
 import sodTrees from "@/assets/gallery/sod-trees.webp";
+import boulderWallExcavator from "@/assets/gallery/boulder-wall-excavator.webp";
+import boulderWallCreek from "@/assets/gallery/boulder-wall-creek.webp";
+import boulderWallFrontyard from "@/assets/gallery/boulder-wall-frontyard.webp";
 
 const images = [
   { src: pondLandscape, alt: "Backyard pond and landscaping", label: "Backyard Landscaping" },
@@ -22,6 +25,9 @@ const images = [
   { src: sideYard, alt: "Side yard work", label: "Side Yards" },
   { src: sodDriveway, alt: "Fresh sod lawn beside paved driveway", label: "Sod Installation" },
   { src: sodTrees, alt: "New sod lawn around mature trees", label: "Sod Installation" },
+  { src: boulderWallFrontyard, alt: "Front yard boulder retaining wall with new sod", label: "Boulder Walls" },
+  { src: boulderWallCreek, alt: "Boulder wall lining a creek bed", label: "Boulder Walls" },
+  { src: boulderWallExcavator, alt: "Excavator building a large boulder wall", label: "Boulder Walls" },
 ];
 
 const GallerySection = () => {
