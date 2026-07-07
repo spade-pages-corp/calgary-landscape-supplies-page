@@ -3,7 +3,7 @@ import pondLandscape from "@/assets/gallery/pond-landscape.webp";
 import gravelPath from "@/assets/gallery/gravel-path.webp";
 import frontYard from "@/assets/gallery/front-yard.webp";
 import sideYard from "@/assets/gallery/side-yard.webp";
-import walkway from "@/assets/gallery/walkway.webp";
+
 import rockDetail from "@/assets/gallery/rock-detail.webp";
 import sodLawnHouse from "@/assets/gallery/sod-lawn-house.webp";
 import sodRockWall from "@/assets/gallery/sod-rock-wall.webp";
