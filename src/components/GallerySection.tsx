@@ -21,7 +21,6 @@ const images = [
   { src: gravelPath, alt: "Gravel pathway", label: "Gravel Pathways" },
   { src: frontYard, alt: "Front yard landscaping", label: "Landscaping" },
   { src: sodRockWall, alt: "New sod lawn with rock retaining wall and mountain view", label: "Sod Installation" },
-  { src: walkway, alt: "Walkway installation", label: "Walkways" },
   { src: sideYard, alt: "Side yard work", label: "Side Yards" },
   { src: sodDriveway, alt: "Fresh sod lawn beside paved driveway", label: "Sod Installation" },
   { src: sodTrees, alt: "New sod lawn around mature trees", label: "Sod Installation" },
