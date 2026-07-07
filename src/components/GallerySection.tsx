@@ -3,7 +3,7 @@ import pondLandscape from "@/assets/gallery/pond-landscape.webp";
 import gravelPath from "@/assets/gallery/gravel-path.webp";
 import frontYard from "@/assets/gallery/front-yard.webp";
 import sideYard from "@/assets/gallery/side-yard.webp";
-import walkway from "@/assets/gallery/walkway.webp";
+
 import rockDetail from "@/assets/gallery/rock-detail.webp";
 import sodLawnHouse from "@/assets/gallery/sod-lawn-house.webp";
 import sodRockWall from "@/assets/gallery/sod-rock-wall.webp";
@@ -21,7 +21,6 @@ const images = [
   { src: gravelPath, alt: "Gravel pathway", label: "Gravel Pathways" },
   { src: frontYard, alt: "Front yard landscaping", label: "Landscaping" },
   { src: sodRockWall, alt: "New sod lawn with rock retaining wall and mountain view", label: "Sod Installation" },
-  { src: walkway, alt: "Walkway installation", label: "Walkways" },
   { src: sideYard, alt: "Side yard work", label: "Side Yards" },
   { src: sodDriveway, alt: "Fresh sod lawn beside paved driveway", label: "Sod Installation" },
   { src: sodTrees, alt: "New sod lawn around mature trees", label: "Sod Installation" },
