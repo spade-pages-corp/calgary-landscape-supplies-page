@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
+import { JaamFormsProvider } from "@jaam-technology/forms/react";
 import Index from "./pages/Index";
 import BulkMaterials from "./pages/BulkMaterials";
 import About from "./pages/About";
@@ -14,6 +15,7 @@ const queryClient = new QueryClient();
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <HelmetProvider>
+    <JaamFormsProvider baseUrl={import.meta.env.VITE_JAAM_FORMS_BASE_URL} logOnly={import.meta.env.DEV}>
     <TooltipProvider>
       <Toaster />
       <Sonner />
@@ -27,6 +29,7 @@ const App = () => (
         </Routes>
       </BrowserRouter>
     </TooltipProvider>
+    </JaamFormsProvider>
     </HelmetProvider>
   </QueryClientProvider>
 );
