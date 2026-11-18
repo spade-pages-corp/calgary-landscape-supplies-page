@@ -1,15 +1,24 @@
 import { useState } from "react";
 import { toast } from "sonner";
+import { BotCheck, useJaamForm } from "@jaam-technology/forms/react";
 
-interface ContactRequest {
-  siteId: string;
-  fullName: string;
-  replyEmail: string;
-  serviceType: string;
-  telephone?: string;
-  zipcode?: string;
-  description?: string;
+interface QuoteRequest {
+  name: string;
+  email: string;
+  phone: string;
+  postal_code: string;
+  service: string;
+  message: string;
 }
+
+const emptyQuote: QuoteRequest = {
+  name: "",
+  email: "",
+  phone: "",
+  postal_code: "",
+  service: "",
+  message: "",
+};
 
 const serviceOptions = [
   "Landscaping",
@@ -22,46 +31,23 @@ const serviceOptions = [
 ];
 
 const QuoteForm = () => {
-  const [loading, setLoading] = useState(false);
-  const [form, setForm] = useState<ContactRequest>({
-    siteId: "093d1c28-6eac-4e24-860b-78d7524cdbf1",
-    fullName: "",
-    replyEmail: "",
-    serviceType: "",
-    telephone: "",
-    zipcode: "",
-    description: "",
+  const [form, setForm] = useState<QuoteRequest>(emptyQuote);
+  const jaamForm = useJaamForm({
+    formId: import.meta.env.VITE_JAAM_FORM_ID,
+    siteKey: import.meta.env.VITE_JAAM_TURNSTILE_SITE_KEY,
   });
 
-  const update = (field: keyof ContactRequest, value: string) => setForm((prev) => ({ ...prev, [field]: value }));
+  const update = (field: keyof QuoteRequest, value: string) => setForm((prev) => ({ ...prev, [field]: value }));
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setLoading(true);
-    try {
-      const res = await fetch("https://email.spadeservices.app/webhook/spade-pages/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
-      if (res.status !== 202) {
-        throw new Error("Unexpected response");
-      }
-      toast.success("Quote request sent! We'll be in touch shortly.");
-      setForm({
-        siteId: "093d1c28-6eac-4e24-860b-78d7524cdbf1",
-        fullName: "",
-        replyEmail: "",
-        serviceType: "",
-        telephone: "",
-        zipcode: "",
-        description: "",
-      });
-    } catch {
-      toast.error("Something went wrong. Please try again or contact us directly.");
-    } finally {
-      setLoading(false);
+    const result = await jaamForm.submit(form);
+    if ("error" in result) {
+      toast.error(result.error.message);
+      return;
     }
+    toast.success("Quote request sent! We'll be in touch shortly.");
+    setForm(emptyQuote);
   };
 
   const inputClasses =
@@ -88,16 +74,16 @@ const QuoteForm = () => {
                 required
                 type="text"
                 placeholder="Full Name *"
-                value={form.fullName}
-                onChange={(e) => update("fullName", e.target.value)}
+                value={form.name}
+                onChange={(e) => update("name", e.target.value)}
                 className={inputClasses}
               />
               <input
                 required
                 type="email"
                 placeholder="Email Address *"
-                value={form.replyEmail}
-                onChange={(e) => update("replyEmail", e.target.value)}
+                value={form.email}
+                onChange={(e) => update("email", e.target.value)}
                 className={inputClasses}
               />
             </div>
@@ -105,22 +91,22 @@ const QuoteForm = () => {
               <input
                 type="tel"
                 placeholder="Phone Number"
-                value={form.telephone}
-                onChange={(e) => update("telephone", e.target.value)}
+                value={form.phone}
+                onChange={(e) => update("phone", e.target.value)}
                 className={inputClasses}
               />
               <input
                 type="text"
                 placeholder="Postal / Zip Code"
-                value={form.zipcode}
-                onChange={(e) => update("zipcode", e.target.value)}
+                value={form.postal_code}
+                onChange={(e) => update("postal_code", e.target.value)}
                 className={inputClasses}
               />
             </div>
             <select
               required
-              value={form.serviceType}
-              onChange={(e) => update("serviceType", e.target.value)}
+              value={form.service}
+              onChange={(e) => update("service", e.target.value)}
               className={inputClasses}
             >
               <option value="" disabled>
@@ -135,16 +121,17 @@ const QuoteForm = () => {
             <textarea
               rows={4}
               placeholder="Tell us about your project..."
-              value={form.description}
-              onChange={(e) => update("description", e.target.value)}
+              value={form.message}
+              onChange={(e) => update("message", e.target.value)}
               className={inputClasses + " resize-none"}
             />
+            <BotCheck form={jaamForm} />
             <button
               type="submit"
-              disabled={loading}
+              disabled={jaamForm.isSubmitting}
               className="w-full bg-primary text-primary-foreground py-4 rounded-md font-display text-sm uppercase tracking-wider hover:opacity-90 transition-opacity disabled:opacity-50"
             >
-              {loading ? "Sending..." : "Submit Quote Request"}
+              {jaamForm.isSubmitting ? "Sending..." : "Submit Quote Request"}
             </button>
           </form>
         </div>
